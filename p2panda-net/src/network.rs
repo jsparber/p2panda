@@ -510,10 +510,12 @@ where
             network.add_peer(direct_addr.clone()).await?;
         }
 
+        println!("Start initializeing");
         // Wait until we've successfully connected to relay.
         if relay.is_some() {
             network.endpoint().home_relay().initialized().await?;
         }
+        println!("Finish initializeing");
 
         Ok(network)
     }
